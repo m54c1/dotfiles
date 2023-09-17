@@ -5,7 +5,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["custom/pacman", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "pulseaudio","tray", "temperature", "idle_inhibitor", "hyprland/language", "clock","custom/power"],
+    "modules-right": ["custom/wireguard", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "pulseaudio","tray", "temperature", "idle_inhibitor", "hyprland/language", "clock","custom/power"],
 
  // Modules configuration
 
@@ -130,6 +130,13 @@
       	"format":"⏻",
        	"on-click": "nwgbar",
       	"tooltip": false,
+   },
+    "custom/wireguard": {
+        "format": "{}<big> </big>",
+        "exec": "~/.config/waybar/wireguard-rofi-waybar/wireguard.sh",
+        "on-click": "rofi -modi 'WireGuard:~/.config/waybar/wireguard-rofi-waybar/wireguard-rofi.sh' -show WireGuard",
+        "interval": 5,
+        "return-type": "json"
    },
    "custom/keyboard-layout": {
       	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
